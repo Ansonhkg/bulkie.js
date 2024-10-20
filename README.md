@@ -2,6 +2,9 @@
 
 The Bulkie SDK provides a simplified interface for interacting with the Lit Protocol. It covers basic development flows for various use cases, such as those found in developer guides and hackathon code.
 
+## API Doc
+https://bulkiejs.vercel.app/
+
 ## Table of Contents
 
 1. [Constructor](#constructor)
