@@ -12,6 +12,26 @@ The Bulkie SDK provides a simplified interface for interacting with the Lit Prot
 6. [Getter Methods](#getter-methods)
 7. [Action Methods](#action-methods)
 8. [Utility Methods](#utility-methods)
+9. [API Overview](#api-overview)
+
+## API Overview
+
+| Method Name                          | Description                                           | Parameters                                                                                      | Return Type         |
+|--------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------|
+| `new Bulkie(params)`                 | Creates a new instance of the Bulkie SDK.            | `network`, `debug?`, `litDebug?`, `guides?`, `signer?`, `rpc?`                               | `Bulkie`             |
+| `connectToLitNodeClient(params?)`   | Connects to the Lit Node Client.                     | `params.outputId?`                                                                              | `Promise<this>`      |
+| `connectToLitContracts(params?)`     | Connects to the Lit Contracts.                        | `params.outputId?`                                                                              | `Promise<this>`      |
+| `mintPKP(params?)`                   | Mints a Programmable Key Pair (PKP).                 | `selfFund?`, `amountInEth?`, `params.outputId?`                                              | `Promise<this>`      |
+| `mintCreditsNFT(params)`             | Mints a Credits NFT.                                 | `requestsPerKilosecond`, `daysUntilUTCMidnightExpiration`, `params.outputId?`                | `Promise<this>`      |
+| `createCreditsDelegationToken(params)`| Creates a Credits Delegation Token.                  | `expiry?`, `creditsTokenId`, `delegatees?`, `params.outputId?`                               | `Promise<this>`      |
+| `createAccessToken(params)`          | Creates an Access Token.                             | `expiration?`, `pkpPublicKey`, `type`, `resources`, `creditsDelegationToken?`, `params.outputId?` | `Promise<this>`      |
+| `grantAuthMethodToUsePKP(params)`   | Grants an auth method permission to use a PKP.      | `pkpTokenId`, `authMethodId`, `authMethodType`, `scopes`, `params.outputId?`                | `Promise<this>`      |
+| `grantIPFSCIDtoUsePKP(params)`      | Grants an IPFS CID permission to use a PKP.         | `pkpTokenId`, `ipfsCid`, `scopes`, `params.outputId?`                                       | `Promise<this>`      |
+| `getPkps()`                          | Retrieves all PKPs associated with the signer's address.| None                                                                                           | `Promise<this>`      |
+| `use(accessToken)`                   | Provides methods to use an access token for various actions.| `accessToken`                                                                                  | Object with methods   |
+| `getOutput(fnName, outputId?)`      | Retrieves the output of a specific function.         | `fnName`, `outputId?`                                                                          | `FunctionReturnTypes[T] | undefined` |
+| `getAllOutputs()`                    | Retrieves all outputs.                               | None                                                                                           | `Map<BulkieSupportedFunctions, any>` |
+| `getTotalExecutionTime()`            | Retrieves the total execution time of all operations. | None                                                                                           | `{ ms: number, s: number }` |
 
 ## Constructor
 
